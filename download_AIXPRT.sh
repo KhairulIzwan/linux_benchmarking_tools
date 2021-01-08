@@ -31,7 +31,7 @@ echo -e "Welcome, $(whoami)!"
 
 # System checking
 # TODO: Checking others (min) system requirements: OS, CPU, GPU, VPU
-if [ ${Release##*.} -ge 18 ]
+if [ ${Release%%.*} -ge 18 ]
 then
 	echo -e "Your machine meet the minimum system requirements:"
 	echo -e "$Distributor_ID"
