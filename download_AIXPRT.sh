@@ -13,6 +13,10 @@
 # https://linuxize.com/post/bash-case-statement/
 # https://tldp.org/LDP/abs/html/comparison-ops.html
 # https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux_benchmarking_tools
+# https://askubuntu.com/questions/86849/how-to-unzip-a-zip-file-from-the-terminal
+# https://linuxize.com/post/get-cpu-information-on-linux/
+
+# https://github.com/BenchmarkXPRT/Public-AIXPRT-Resources/blob/master/Installation%20readmes/AIXPRT%20OpenVINO%20Ubuntu%20Readme.md
 
 # -------------------------------------------------
 
@@ -26,11 +30,16 @@ Description="$(lsb_release -d)"
 Release="$(lsb_release -sr)"
 Codename="$(lsb_release -c)"
 
-RED='\033[0;31m'
+#echo -e "$Distributor_ID"
+#echo -e "$Description"
+#echo -e "$Release"
+#echo -e "$Codename"
+
+# ANSI Color Code
 NC='\033[0m' # No Color
-Black='\033[0;30m'
-Dark Gray='\033[1;30m'
-Red='\033[0;31m'
+BLACK='\033[0;30m'
+DARKGRAY='\033[1;30m'
+RED='\033[0;31m'
 LIGHTRED='\033[1;31m'
 GREEN='\033[0;32m'
 LIGHTGREEN='\033[1;32m'
@@ -45,31 +54,29 @@ LIGHTCYAN='\033[1;36m'
 LIGHTGRAY='\033[0;37m'
 WHITE='\033[1;37m'
 
-# Welcome greeting
-echo -e "Welcome, ${RED}$(whoami)${NC}!"
-#echo -e "$(lsb_release -i)"
-#echo -e "$Release"
+# Welcome Greeting
+echo -e "Welcome, ${GREEN}$(whoami)${NC}!"
 
-# System checking
+# System Checking
 # TODO: Checking others (min) system requirements: OS, CPU, GPU, VPU
 if [ ${Release%%.*} -ge 18 ]
 then
 	echo -e "Your machine meet the minimum system requirements:"
 	echo -e "$Distributor_ID"
 	echo -e "$Description"
-	echo -e "$Release"
+#	echo -e "$Release"
 	echo -e "$Codename"
 else
 	echo -e "Your machine NOT meet the minimum system requirements:"
 	echo -e "$Distributor_ID"
 	echo -e "$Description"
-	echo -e "$Release"
+#	echo -e "$Release"
 	echo -e "$Codename"
 	
 	exit
 fi
 
-# Install option
+# Installation Option
 echo -e "[1]  Intel OpenVINO"
 echo -e "[2]  TensorFlow"
 echo -e "[3]  NVIDIA TensorRT"
@@ -91,6 +98,8 @@ case $option in
 		echo -e "[4]  MXNet"
 		echo -e "[5]  All"
 		wget https://www.principledtechnologies.com/benchmarkxprt/aixprt/2019/AIXPRT_1.0_OpenVINO_Ubuntu.zip
+		echo -e ""
+		echo -e "Unzip the AIXPRT installation packages..."
 		unzip AIXPRT_1.0_OpenVINO_Ubuntu.zip
 		;;
 		
@@ -102,6 +111,8 @@ case $option in
 		echo -e "[4]  MXNet"
 		echo -e "[5]  All"
 		wget https://www.principledtechnologies.com/benchmarkxprt/aixprt/2019/AIXPRT_1.0_Tensorflow_Ubuntu.zip
+		echo -e ""
+		echo -e "Unzip the AIXPRT installation packages..."
 		unzip AIXPRT_1.0_Tensorflow_Ubuntu.zip
 		;;
 		
@@ -113,6 +124,8 @@ case $option in
 		echo -e "[4]  MXNet"
 		echo -e "[5]  All"
 		wget https://www.principledtechnologies.com/benchmarkxprt/aixprt/2019/AIXPRT_1.0_TensorRT_Ubuntu.zip
+		echo -e ""
+		echo -e "Unzip the AIXPRT installation packages..."
 		unzip AIXPRT_1.0_TensorRT_Ubuntu.zip
 		;;
 		
@@ -124,6 +137,8 @@ case $option in
 		echo -e "${GREEN}[4]  MXNet${NC}"
 		echo -e "[5]  All"
 		wget https://www.principledtechnologies.com/benchmarkxprt/aixprt/2019/AIXPRT_1.0_MXNet_Ubuntu.zip
+		echo -e ""
+		echo -e "Unzip the AIXPRT installation packages..."
 		unzip AIXPRT_1.0_MXNet_Ubuntu.zip
 		;;
 		
@@ -138,6 +153,8 @@ case $option in
 		wget https://www.principledtechnologies.com/benchmarkxprt/aixprt/2019/AIXPRT_1.0_Tensorflow_Ubuntu.zip
 		wget https://www.principledtechnologies.com/benchmarkxprt/aixprt/2019/AIXPRT_1.0_TensorRT_Ubuntu.zip
 		wget https://www.principledtechnologies.com/benchmarkxprt/aixprt/2019/AIXPRT_1.0_MXNet_Ubuntu.zip
+		echo -e ""
+		echo -e "Unzip the AIXPRT installation packages..."
 		unzip AIXPRT_1.0_OpenVINO_Ubuntu.zip
 		unzip AIXPRT_1.0_Tensorflow_Ubuntu.zip
 		unzip AIXPRT_1.0_TensorRT_Ubuntu.zip
@@ -147,5 +164,42 @@ case $option in
 	*)
 		echo -n "Downloading Cancelled"
 		exit
+		;;
+esac
+
+# Installation and System Setup
+echo -e ""
+echo -e "Install dependencies..."
+
+# Install python3 packages
+echo -e "Install python3 packages..."
+sudo apt update
+sudo apt-get install python3-pip python3-numpy git python3-opencv
+pip3 install Pillow opencv-python
+
+# If running on GPU target
+echo -n "Running on GPU target? [[Y]-Yes / [N]-No]:"
+
+read gpuTarget
+
+case $gpuTarget in
+
+	Y | y)
+		echo -e "${GREEN}Install the latest GPU drivers${NC}"
+		sudo add-apt-repository ppa:intel-opencl/intel-opencl
+		sudo apt-get update
+		sudo apt-get install intel-opencl
+		;;
+		
+	N | n)
+		echo -e "${RED}NOT Install the latest GPU drivers${NC}"
+		continue
+		;;
+		
+	*)
+		echo -e "${GREEN}Install the latest GPU drivers${NC}"
+		sudo add-apt-repository ppa:intel-opencl/intel-opencl
+		sudo apt-get update
+		sudo apt-get install intel-opencl
 		;;
 esac
