@@ -116,3 +116,6 @@ case $selectionGuide in
 		exit
 		;;
 esac
+
+# TODO
+bash AIXPRT_benchmarking.sh
