@@ -87,24 +87,32 @@ case $selectionGuide in
 			1)
 				echo -e ""
 				echo -e "${GREEN}[1]  Intel OpenVINO${NC}"
+				
+				# TODO: Check the folder exist?
 				cd AIXPRT_1.0_OpenVINO_Ubuntu/Harness
 				python3 index.py
 				;;
 			2)
 				echo -e ""
 				echo -e "${GREEN}[2]  TensorFlow${NC}"
+				
+				# TODO: Check the folder exist?
 				cd AIXPRT_1.0_Tensorflow_Ubuntu/Harness
 				python3 index.py
 				;;
 			3)
 				echo -e ""
 				echo -e "${GREEN}[3]  NVIDIA TensorRT${NC}"
+				
+				# TODO: Check the folder exist?
 				cd AIXPRT_1.0_TensorRT_Ubuntu/Harness
 				python3 index.py
 				;;
 			4)
 				echo -e ""
 				echo -e "${GREEN}[4]  MXNet${NC}"
+				
+				# TODO: Check the folder exist?
 				cd AIXPRT_1.0_MXNet_Ubuntu/Harness
 				python3 index.py
 				;;
