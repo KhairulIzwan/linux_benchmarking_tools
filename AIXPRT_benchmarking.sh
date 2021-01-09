@@ -99,14 +99,14 @@ case $selectionGuide in
 			3)
 				echo -e ""
 				echo -e "${GREEN}[3]  NVIDIA TensorRT${NC}"
-#				cd AIXPRT_1.0_TensorRT_Ubuntu/Harness
-#				python3 index.py
+				cd AIXPRT_1.0_TensorRT_Ubuntu/Harness
+				python3 index.py
 				;;
 			4)
 				echo -e ""
 				echo -e "${GREEN}[4]  MXNet${NC}"
-#				cd AIXPRT_1.0_MXNet_Ubuntu/Harness
-#				python3 index.py
+				cd AIXPRT_1.0_MXNet_Ubuntu/Harness
+				python3 index.py
 				;;
 			*)
 				echo -e ""
