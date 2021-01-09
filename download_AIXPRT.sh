@@ -11,6 +11,8 @@
 # https://www.tecmint.com/check-linux-cpu-information/
 # https://linuxize.com/post/bash-exit/
 # https://linuxize.com/post/bash-case-statement/
+# https://tldp.org/LDP/abs/html/comparison-ops.html
+# https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux_benchmarking_tools
 
 # -------------------------------------------------
 
@@ -24,8 +26,27 @@ Description="$(lsb_release -d)"
 Release="$(lsb_release -sr)"
 Codename="$(lsb_release -c)"
 
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+Black='\033[0;30m'
+Dark Gray='\033[1;30m'
+Red='\033[0;31m'
+LIGHTRED='\033[1;31m'
+GREEN='\033[0;32m'
+LIGHTGREEN='\033[1;32m'
+BROWN='\033[0;33m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+LIGHTBLUE='\033[1;34m'
+PURPLE='\033[0;35m'
+LIGHTPURPLE='\033[1;35m'
+CYAN='\033[0;36m'
+LIGHTCYAN='\033[1;36m'
+LIGHTGRAY='\033[0;37m'
+WHITE='\033[1;37m'
+
 # Welcome greeting
-echo -e "Welcome, $(whoami)!"
+echo -e "Welcome, ${RED}$(whoami)${NC}!"
 #echo -e "$(lsb_release -i)"
 #echo -e "$Release"
 
@@ -63,35 +84,68 @@ echo -n "AIXPRT test packages to be installed is "
 case $option in
 
 	1)
-		echo -e "[1] Intel OpenVINO"
+		echo -e ""
+		echo -e "${GREEN}[1]  Intel OpenVINO${NC}"
+		echo -e "[2]  TensorFlow"
+		echo -e "[3]  NVIDIA TensorRT"
+		echo -e "[4]  MXNet"
+		echo -e "[5]  All"
 		wget https://www.principledtechnologies.com/benchmarkxprt/aixprt/2019/AIXPRT_1.0_OpenVINO_Ubuntu.zip
+		unzip AIXPRT_1.0_OpenVINO_Ubuntu.zip
 		;;
 		
 	2)
-		echo -e "[2] TensorFlow"
+		echo -e ""
+		echo -e "[1]  Intel OpenVINO"
+		echo -e "${GREEN}[2]  TensorFlow${NC}"
+		echo -e "[3]  NVIDIA TensorRT"
+		echo -e "[4]  MXNet"
+		echo -e "[5]  All"
 		wget https://www.principledtechnologies.com/benchmarkxprt/aixprt/2019/AIXPRT_1.0_Tensorflow_Ubuntu.zip
+		unzip AIXPRT_1.0_Tensorflow_Ubuntu.zip
 		;;
 		
 	3)
-		echo -e "[3] NVIDIA TensorRT"
+		echo -e ""
+		echo -e "[1]  Intel OpenVINO"
+		echo -e "[2]  TensorFlow"
+		echo -e "${GREEN}[3]  NVIDIA TensorRT${NC}"
+		echo -e "[4]  MXNet"
+		echo -e "[5]  All"
 		wget https://www.principledtechnologies.com/benchmarkxprt/aixprt/2019/AIXPRT_1.0_TensorRT_Ubuntu.zip
+		unzip AIXPRT_1.0_TensorRT_Ubuntu.zip
 		;;
 		
 	4)
-		echo -e "[4] MXNet"
+		echo -e ""
+		echo -e "[1]  Intel OpenVINO"
+		echo -e "[2]  TensorFlow"
+		echo -e "[3]  NVIDIA TensorRT"
+		echo -e "${GREEN}[4]  MXNet${NC}"
+		echo -e "[5]  All"
 		wget https://www.principledtechnologies.com/benchmarkxprt/aixprt/2019/AIXPRT_1.0_MXNet_Ubuntu.zip
+		unzip AIXPRT_1.0_MXNet_Ubuntu.zip
 		;;
 		
 	5)
-		echo -e "[5] All"
+		echo -e ""
+		echo -e "[1]  Intel OpenVINO"
+		echo -e "[2]  TensorFlow"
+		echo -e "[3]  NVIDIA TensorRT"
+		echo -e "[4]  MXNet"
+		echo -e "${GREEN}[5]  All${NC}"
 		wget https://www.principledtechnologies.com/benchmarkxprt/aixprt/2019/AIXPRT_1.0_OpenVINO_Ubuntu.zip
 		wget https://www.principledtechnologies.com/benchmarkxprt/aixprt/2019/AIXPRT_1.0_Tensorflow_Ubuntu.zip
 		wget https://www.principledtechnologies.com/benchmarkxprt/aixprt/2019/AIXPRT_1.0_TensorRT_Ubuntu.zip
 		wget https://www.principledtechnologies.com/benchmarkxprt/aixprt/2019/AIXPRT_1.0_MXNet_Ubuntu.zip
+		unzip AIXPRT_1.0_OpenVINO_Ubuntu.zip
+		unzip AIXPRT_1.0_Tensorflow_Ubuntu.zip
+		unzip AIXPRT_1.0_TensorRT_Ubuntu.zip
+		unzip AIXPRT_1.0_MXNet_Ubuntu.zip
 		;;
 		
 	*)
-		echo -n "Not listed, Installation halt!"
+		echo -n "Downloading Cancelled"
 		exit
 		;;
 esac
