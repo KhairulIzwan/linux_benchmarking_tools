@@ -119,7 +119,7 @@ case $selectionGuide in
 			*)
 				echo -e ""
 				echo -e "${RED}Not in selection. Process DIED!${NC}"
-				exit
+#				exit
 				;;
 		esac
 		;;
