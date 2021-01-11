@@ -33,7 +33,7 @@ wget https://registrationcenter-download.intel.com/akdlm/irc_nas/17276/l_openvin
 tar -xvzf l_openvino_toolkit_p_2020.3.341.tgz
 
 # Rename it
-mv l_openvino_toolkit_runtime_raspbian_p_2020.1.023 openvino
+mv l_openvino_toolkit_p_2020.3.341 openvino
 
 cd openvino
 
