@@ -35,7 +35,7 @@ tar -xvzf l_openvino_toolkit_p_2020.3.341.tgz
 # Rename it
 mv l_openvino_toolkit_p_2020.3.341 openvino
 
-cd openvino
+cd openvino/l_openvino_toolkit_p_2020.3.341
 
 # Installation
 sudo ./install.sh
