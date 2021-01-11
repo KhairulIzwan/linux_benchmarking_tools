@@ -18,5 +18,5 @@ clear
 
 echo -e "Install External Software Dependencies..."
 
-cd /opt/intel/openvino_2021/install_dependencies
+cd /opt/intel/openvino/install_dependencies
 sudo -E ./install_openvino_dependencies.sh
