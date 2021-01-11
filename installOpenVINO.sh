@@ -23,3 +23,5 @@ echo -e "Install a selection of image and video libraries..."
 sudo apt-get install libjpeg-dev libpng-dev libtiff-dev
 sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
 sudo apt-get install libxvidcore-dev libx264-dev
+
+https://registrationcenter-download.intel.com/akdlm/irc_nas/17276/l_openvino_toolkit_p_2020.3.341.tgz
