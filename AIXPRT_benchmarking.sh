@@ -90,7 +90,7 @@ case $selectionGuide in
 				
 				# TODO: Check the folder exist?
 				cd AIXPRT_1.0_OpenVINO_Ubuntu/AIXPRT/Harness
-				sudo python3 index.py
+				python3 index.py
 				;;
 			2)
 				echo -e ""
@@ -98,7 +98,7 @@ case $selectionGuide in
 				
 				# TODO: Check the folder exist?
 				cd AIXPRT_1.0_Tensorflow_Ubuntu/AIXPRT/Harness
-				sudo python3 index.py
+				python3 index.py
 				;;
 			3)
 				echo -e ""
@@ -106,7 +106,7 @@ case $selectionGuide in
 				
 				# TODO: Check the folder exist?
 				cd AIXPRT_1.0_TensorRT_Ubuntu/AIXPRT/Harness
-				sudo python3 index.py
+				python3 index.py
 				;;
 			4)
 				echo -e ""
@@ -114,7 +114,7 @@ case $selectionGuide in
 				
 				# TODO: Check the folder exist?
 				cd AIXPRT_1.0_MXNet_Ubuntu/AIXPRT/Harness
-				sudo python3 index.py
+				python3 index.py
 				;;
 			*)
 				echo -e ""
