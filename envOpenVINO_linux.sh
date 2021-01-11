@@ -32,21 +32,25 @@ cd /opt/intel/openvino/deployment_tools/demo
 echo -e "Run the Image Classification verification script:"
 echo -e ""
 echo -e "Please type:"
-echo -e ""
-echo -e "./demo_squeezenet_download_convert_run.sh"
+
 echo -e ""
 echo -e "This verification script downloads a SqueezeNet model, uses the Model Optimizer to convert the model to the .bin and .xml Intermediate Representation (IR) files. The Inference Engine requires this model conversion so it can use the IR as input and achieve optimum performance on Intel hardware."
 echo -e "This verification script builds the Image Classification Sample Async application and run it with the car.png image located in the demo directory. When the verification script completes, you will have the label and confidence for the top-10 categories."
+
+echo -e ""
+cd /opt/intel/openvino/deployment_tools/demo
+./demo_squeezenet_download_convert_run.sh
+
 echo -e ""
 echo -e "and then..."
 echo -e ""
 echo -e "Please type:"
-echo -e ""
-echo -e "./demo_squeezenet_download_convert_run.sh"
+
 echo -e ""
 echo -e "This script downloads three pre-trained model IRs, builds the Security Barrier Camera Demo application, and runs it with the downloaded models and the car_1.bmp image from the demo directory to show an inference pipeline. The verification script uses vehicle recognition in which vehicle attributes build on each other to narrow in on a specific attribute."
 echo -e "First, an object is identified as a vehicle. This identification is used as input to the next model, which identifies specific vehicle attributes, including the license plate. Finally, the attributes identified as the license plate are used as input to the third model, which recognizes specific characters in the license plate."
 echo -e "When the verification script completes, you will see an image that displays the resulting frame with detections rendered as bounding boxes, and text"
 
-
-
+echo -e ""
+cd /opt/intel/openvino/deployment_tools/demo
+./demo_security_barrier_camera.sh
