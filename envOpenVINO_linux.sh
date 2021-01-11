@@ -20,6 +20,7 @@ echo -e "Set the Environment Variables..."
 
 echo -e "\n# OpenVINO" >> ~/.bashrc
 echo "source /opt/intel/openvino/bin/setupvars.sh" >> ~/.bashrc
+source ~/.bashrc
 
 echo -e "Configure the Model Optimizer..."
 cd /opt/intel/openvino/deployment_tools/model_optimizer/install_prerequisites
