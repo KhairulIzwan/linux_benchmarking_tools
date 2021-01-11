@@ -2,7 +2,7 @@
 
 # -------------------------------------------------
 
-# Usage: Installing AIXPRT on Linux (Ubuntu)
+# Usage: Installing AIXPRT Benchmarking Tools on Linux (Ubuntu)
 # Author: Khairul Izwan Bin Kamsani (wansnap@gmail.com)
 
 # References: 

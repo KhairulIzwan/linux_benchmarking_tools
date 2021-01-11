@@ -10,6 +10,7 @@
 # https://www.pyimagesearch.com/2018/05/28/ubuntu-18-04-how-to-install-opencv/
 # https://www.pyimagesearch.com/2018/09/19/pip-install-opencv/
 # https://docs.openvinotoolkit.org/latest/openvino_docs_install_guides_installing_openvino_linux.html
+# https://docs.openvinotoolkit.org/2020.3/_docs_install_guides_installing_openvino_linux.html
 
 # -------------------------------------------------
 
